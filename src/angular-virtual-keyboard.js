@@ -92,6 +92,11 @@ angular.module('angular-virtual-keyboard', [])
 				return;
 			}
 
+			//Don't show virtualKeyabord if isEnabled is falsy;
+			if ($injector.has('isEnabled') && ! $injector.get('isEnabled') ) {
+				return;
+			}
+
 			// Don't show virtual keyboard in mobile devices (default)
 			if ($injector.has('UAParser')) {
 				var UAParser = $injector.get('UAParser');
